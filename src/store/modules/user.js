@@ -50,13 +50,13 @@ const actions = {
         const { data } = response
 
         if (!data) {
-          return reject('Verification failed, please Login again.')
+          return reject('验证失败，请再次登录')
         }
+        //console.log(data);
+        const { user_display_name, user_portrait } = data
 
-        const { name, avatar } = data
-
-        commit('SET_NAME', name)
-        commit('SET_AVATAR', avatar)
+        commit('SET_NAME', user_display_name)
+        commit('SET_AVATAR', user_portrait)
         resolve(data)
       }).catch(error => {
         reject(error)
