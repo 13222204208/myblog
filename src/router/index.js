@@ -55,7 +55,7 @@ export const constantRoutes = [
     }]
   },
 
-  {
+/*   {
     path: '/example',
     component: Layout,
     redirect: '/example/table',
@@ -74,6 +74,52 @@ export const constantRoutes = [
         component: () => import('@/views/tree/index'),
         meta: { title: 'Tree', icon: 'tree' }
       }
+    ]
+  }, */
+
+  {
+    path: '/user',
+    component: Layout,
+    //redirect: '/user',
+    name: 'User',
+    meta: { title: '用户管理', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'list',
+        name: 'List',
+        component: () => import('@/views/user/list'),
+        meta: { title: '用户列表', icon: 'table' }
+      },
+      {
+        path: 'route',
+        name: 'Route',
+        component: () => import('@/views/user/route'),
+        meta: { title: '路由列表', icon: 'table' }
+      },
+  
+    ]
+  },
+
+  {
+    path: '/article',
+    component: Layout,
+    //redirect: '/user',
+    name: 'Article',
+    meta: { title: '文章管理', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'create',
+        name: 'CreateArticle',
+        component: () => import('@/views/article/create-article'),
+        meta: { title: '创建文章', icon: 'table' }
+      },
+      {
+        path: 'list',
+        name: 'ArticleList',
+        component: () => import('@/views/article/article-list'),
+        meta: { title: '文章列表', icon: 'table' }
+      },
+  
     ]
   },
 
